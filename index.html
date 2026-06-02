@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOB'S Lawyer — Alberta Legal Specialists</title>
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SCREEN 1: AGENT SELECTION
+  ══════════════════════════════════════════ -->
+  <div id="selectionScreen" class="screen active">
+    <div class="selection-screen">
+
+      <!-- Header -->
+      <div class="selection-header">
+        <div class="selection-logo">
+          <img src="logo.png" alt="BOB'S Lawyer Logo" />
+        </div>
+        <h1 class="selection-title">BOB'S LAWYER</h1>
+        <p class="selection-subtitle">Alberta's Premier AI Legal Specialists</p>
+        <p class="selection-tagline">All lawyers hand-picked & approved by Bob — Choose your specialist below</p>
+      </div>
+
+      <!-- Agents Grid -->
+      <div class="agents-grid">
+
+        <!-- Criminal Law -->
+        <div class="agent-card" data-agent="criminal" onclick="selectAgent('criminal')">
+          <div class="agent-emoji">⚖️</div>
+          <div class="agent-name">CRIMINAL LAW</div>
+          <div class="agent-title">Criminal Defence Specialist</div>
+          <div class="agent-desc">Criminal Code of Canada, Alberta courts, bail hearings, sentencing, Charter rights, defence strategies</div>
+          <div class="agent-badge">Alberta Criminal Code</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Business Law -->
+        <div class="agent-card" data-agent="business" onclick="selectAgent('business')">
+          <div class="agent-emoji">💼</div>
+          <div class="agent-name">BUSINESS LAW</div>
+          <div class="agent-title">Business Law Specialist</div>
+          <div class="agent-desc">Contracts, partnerships, sole proprietorships, business registration, Alberta Business Corporations Act</div>
+          <div class="agent-badge">Alberta Business Law</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Corporate Law -->
+        <div class="agent-card" data-agent="corporate" onclick="selectAgent('corporate')">
+          <div class="agent-emoji">🏛️</div>
+          <div class="agent-name">CORPORATE LAW</div>
+          <div class="agent-title">Corporate Counsel Specialist</div>
+          <div class="agent-desc">Incorporation, shareholder agreements, mergers & acquisitions, corporate governance, securities law</div>
+          <div class="agent-badge">ABCA & CBCA</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Civil Law -->
+        <div class="agent-card" data-agent="civil" onclick="selectAgent('civil')">
+          <div class="agent-emoji">🔍</div>
+          <div class="agent-name">CIVIL LAW</div>
+          <div class="agent-title">Civil Litigation Specialist</div>
+          <div class="agent-desc">Lawsuits, damages, torts, negligence, personal injury, property disputes, Alberta Court of King's Bench</div>
+          <div class="agent-badge">Civil Litigation</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Family Law -->
+        <div class="agent-card" data-agent="family" onclick="selectAgent('family')">
+          <div class="agent-emoji">👨‍👩‍👧</div>
+          <div class="agent-name">FAMILY LAW</div>
+          <div class="agent-title">Family & Domestic Specialist</div>
+          <div class="agent-desc">Divorce, separation, child custody, child support, spousal support, restraining orders, adoption</div>
+          <div class="agent-badge">Alberta Family Law</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Traffic Law -->
+        <div class="agent-card" data-agent="traffic" onclick="selectAgent('traffic')">
+          <div class="agent-emoji">🚗</div>
+          <div class="agent-name">TRAFFIC LAW</div>
+          <div class="agent-title">Traffic & Motor Vehicle Specialist</div>
+          <div class="agent-desc">Traffic tickets, speeding, DUI/DWI, licence suspensions, hit & run, Alberta Traffic Safety Act</div>
+          <div class="agent-badge">Traffic Safety Act</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Employment Law -->
+        <div class="agent-card" data-agent="employment" onclick="selectAgent('employment')">
+          <div class="agent-emoji">👷</div>
+          <div class="agent-name">EMPLOYMENT LAW</div>
+          <div class="agent-title">Employment & Labour Specialist</div>
+          <div class="agent-desc">Wrongful dismissal, severance, employment contracts, workplace harassment, Alberta Employment Standards</div>
+          <div class="agent-badge">Employment Standards</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Real Estate Law -->
+        <div class="agent-card" data-agent="realestate" onclick="selectAgent('realestate')">
+          <div class="agent-emoji">🏠</div>
+          <div class="agent-name">REAL ESTATE LAW</div>
+          <div class="agent-title">Real Estate Law Specialist</div>
+          <div class="agent-desc">Property purchases, mortgages, title disputes, landlord-tenant issues, zoning, condo law, foreclosures</div>
+          <div class="agent-badge">Real Property Act</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+        <!-- Immigration Law -->
+        <div class="agent-card" data-agent="immigration" onclick="selectAgent('immigration')">
+          <div class="agent-emoji">✈️</div>
+          <div class="agent-name">IMMIGRATION LAW</div>
+          <div class="agent-title">Immigration & Refugee Specialist</div>
+          <div class="agent-desc">Visa applications, permanent residency, citizenship, refugee claims, deportation defence, IRCC processes</div>
+          <div class="agent-badge">IRPA & IRCC</div>
+          <div class="bob-approved">✦ BOB APPROVED ✦</div>
+        </div>
+
+      </div><!-- /agents-grid -->
+
+      <div class="selection-footer">
+        <p>⚠️ BOB'S Lawyer provides comprehensive legal information for Alberta, Canada. For critical matters, always consult a licensed practitioner.</p>
+      </div>
+
+    </div>
+  </div><!-- /selectionScreen -->
+
+
+  <!-- ══════════════════════════════════════════
+       SCREEN 2: CHAT INTERFACE
+  ══════════════════════════════════════════ -->
+  <div id="chatScreen" class="screen">
+    <div class="chat-screen">
+
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <button class="back-btn" onclick="goBack()" title="Choose a different lawyer">
+          ← Back
+        </button>
+        <div class="chat-header-logo">
+          <img src="logo.png" alt="BOB'S Lawyer" />
+        </div>
+        <div class="chat-header-info">
+          <div class="chat-agent-emoji" id="chatAgentEmoji">⚖️</div>
+          <div>
+            <div class="chat-agent-name" id="chatAgentName">Criminal Law</div>
+            <div class="chat-agent-status">
+              <span class="status-dot"></span>
+              BOB'S Lawyer — AI Specialist Online
+            </div>
+          </div>
+        </div>
+        <button class="new-chat-btn" onclick="clearChat()" title="Start a new conversation">
+          ✦ New Chat
+        </button>
+      </div>
+
+      <!-- Messages Container -->
+      <div class="messages-container" id="messagesContainer">
+        <!-- Welcome message injected by JS -->
+      </div>
+
+      <!-- Suggested Questions -->
+      <div class="suggested-questions" id="suggestedQuestions">
+        <!-- Injected by JS based on agent -->
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            class="message-input"
+            placeholder="Ask your legal question…"
+            rows="1"
+            onkeydown="handleKeyDown(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="input-footer">
+          <span id="charCount" class="char-count">0 / 2000</span>
+          <span class="input-hint">Shift+Enter for new line · Enter to send</span>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /chatScreen -->
+
+
+  <!-- Badge Patch Script -->
+  <script>
+    function patchBadge() {
+      const badgeText = document.querySelector('.ninja-badge-text');
+      const badgeEmoji = document.querySelector('.ninja-badge-emoji');
+      const badgeLink = document.querySelector('.ninja-badge a');
+      if (badgeText) {
+        badgeText.textContent = 'The Best Methodz : Developed by METHOD-MEDIA';
+        if (badgeEmoji) badgeEmoji.textContent = '⚖️';
+        if (badgeLink) { badgeLink.removeAttribute('href'); badgeLink.style.cursor = 'default'; }
+      } else {
+        setTimeout(patchBadge, 100);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(patchBadge, 300); });
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
