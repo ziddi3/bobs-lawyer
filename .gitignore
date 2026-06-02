@@ -5,3 +5,4 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+app_prod_template.js
