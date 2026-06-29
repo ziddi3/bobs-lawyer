@@ -1085,3 +1085,59 @@ html, body {
   font-family: var(--font-main) !important;
   white-space: nowrap;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   METHOD HUB RETURN BAR
+═══════════════════════════════════════════════════════════════ */
+.hub-return-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background: linear-gradient(90deg, #050810, #0d1525, #050810);
+  border-bottom: 1px solid var(--flame-deep);
+  color: var(--flame-bright);
+  text-decoration: none;
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+.hub-return-bar:hover {
+  background: linear-gradient(90deg, #0d1525, #122033, #0d1525);
+  color: #fff;
+}
+.hub-return-arrow {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--flame-bright);
+}
+.hub-return-label {
+  flex: 0 0 auto;
+}
+.hub-return-brand {
+  margin-left: auto;
+  color: var(--red-bright);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+/* Push screens down so they clear the fixed bar */
+.screen {
+  padding-top: 34px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .hub-return-bar { font-size: 0.72rem; padding: 6px 12px; }
+  .hub-return-brand { font-size: 0.62rem; }
+}

@@ -11,6 +11,15 @@
 <body>
 
   <!-- ══════════════════════════════════════════
+       METHOD HUB RETURN BAR (always visible)
+  ══════════════════════════════════════════ -->
+  <a href="https://hub.methodz.ca" class="hub-return-bar" title="Back to Method Hub">
+    <span class="hub-return-arrow">←</span>
+    <span class="hub-return-label">Back to Method Hub</span>
+    <span class="hub-return-brand">methodz.ca</span>
+  </a>
+
+  <!-- ══════════════════════════════════════════
        SCREEN 1: AGENT SELECTION
   ══════════════════════════════════════════ -->
   <div id="selectionScreen" class="screen active">
@@ -199,18 +208,69 @@
   <!-- Badge Patch Script -->
   <script>
     function patchBadge() {
+      // Patch the main badge text
       const badgeText = document.querySelector('.ninja-badge-text');
       const badgeEmoji = document.querySelector('.ninja-badge-emoji');
       const badgeLink = document.querySelector('.ninja-badge a');
-      if (badgeText) {
-        badgeText.textContent = 'The Best Methodz : Developed by METHOD-MEDIA';
+      const badge = document.querySelector('.ninja-badge');
+
+      if (badgeText || badge) {
+        if (badgeText) badgeText.textContent = 'The Best Methodz : Developed by METHOD-MEDIA';
         if (badgeEmoji) badgeEmoji.textContent = '⚖️';
         if (badgeLink) { badgeLink.removeAttribute('href'); badgeLink.style.cursor = 'default'; }
+
+        // Replace ANY "SuperNinja" or "superninja" text inside the badge
+        if (badge) {
+          const allElements = badge.querySelectorAll('*');
+          allElements.forEach(el => {
+            if (el.childNodes) {
+              el.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                  const original = node.textContent;
+                  const replaced = original.replace(/super\s*ninja/gi, 'Methodz');
+                  if (original !== replaced) node.textContent = replaced;
+                }
+              });
+            }
+          });
+        }
+
+        // Also catch any floating bubble/popup that says SuperNinja site-wide
+        document.querySelectorAll('.ninja-badge, [class*="ninja-badge"], [class*="badge"], [class*="bubble"]').forEach(el => {
+          const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+          let node;
+          while (node = walker.nextNode()) {
+            const original = node.textContent;
+            const replaced = original.replace(/super\s*ninja/gi, 'Methodz');
+            if (original !== replaced) node.textContent = replaced;
+          }
+        });
       } else {
         setTimeout(patchBadge, 100);
       }
     }
+
+    // Run on load and also observe for dynamically injected elements
     document.addEventListener('DOMContentLoaded', function() { setTimeout(patchBadge, 300); });
+
+    // MutationObserver to catch late-injected badge elements
+    const badgeObserver = new MutationObserver(function(mutations) {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            const textEls = node.querySelectorAll ? node.querySelectorAll('*') : [];
+            textEls.forEach(el => {
+              el.childNodes.forEach(child => {
+                if (child.nodeType === Node.TEXT_NODE && /super\s*ninja/i.test(child.textContent)) {
+                  child.textContent = child.textContent.replace(/super\s*ninja/gi, 'Methodz');
+                }
+              });
+            });
+          }
+        }
+      }
+    });
+    badgeObserver.observe(document.documentElement, { childList: true, subtree: true });
   </script>
 
   <script src="app.js"></script>
