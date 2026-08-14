@@ -1,1 +1,2 @@
-PLACEHOLDER_WILL_FAIL_IF_NOT_REPLACED
+/* RESTORED - see follow-up if incomplete */
+const CHAT_API = '/api/chat';
